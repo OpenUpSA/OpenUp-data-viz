@@ -1,6 +1,11 @@
+#chart.selected #gap-track {
+  visibility: visible;
+}
+
 #gap-track {
   height: 28px;
   position: relative;
+  visibility: hidden;
 }
 
 #gap {

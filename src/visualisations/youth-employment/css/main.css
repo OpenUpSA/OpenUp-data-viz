@@ -2,6 +2,36 @@
 @import "./gap.css";
 @import "./tick.css";
 
+:root {
+  --track-label-width: 42px;
+}
+
+h2 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  background: #F2F2F2;
+  border-radius: 100px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  margin-bottom: 37px;
+}
+
+#toolbar {
+  margin-bottom: 30px;
+}
+
+#chart {
+  padding-left: var(--track-label-width);
+}
+
 #plot {
   padding-top: 50px;
   padding-bottom: 80px;
@@ -13,6 +43,28 @@
   display: flex;
   align-items: flex-start;
 }
+
+.track-points::before {
+  content: attr(data-label);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 176px;
+  height: var(--track-label-width);
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) rotate(-90deg);
+  background-color: #F2F2F2;
+  border-radius: 100px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+
 .track ~ .track {
   align-items: flex-end;
 }
