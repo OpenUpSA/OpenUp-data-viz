@@ -4,71 +4,25 @@
 <head>
   <meta charset=utf-8>
   <title>Youth Employment</title>
-  <script src="./main.js" defer></script>
-  <style>
-    .track {
-      position: relative;
-    }
-
-    #female .point {
-      background-color: #B120F5;
-    }
-
-    #male .point {
-      background-color: #2958D0;
-    }
-
-    .point {
-      position: absolute;
-      opacity: 0.25;
-      border-radius: 100%;
-      transform: translate(-50%, -50%);
-    }
-
-    .point.min, .point.max {
-      border: 1px solid #FFFFFF;
-      box-sizing: border-box;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      opacity: 100% !important;
-      z-index: 10;
-    }
-
-    #male .point.min, #female .point.min {
-      background-color: #00AB52;
-    }
-
-    #male .point.max, #female .point.max {
-      background-color: #F52020;
-    }
-
-    #chart.selected .point:not(.active) {
-      opacity: 0.05;
-    }
-
-    #male .point.active {
-      background: #325FD2;
-      border: 1px solid #FFFFFF;
-      box-sizing: border-box;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      opacity: 1;
-    }
-
-    #female .point.active {
-      background: #B224F7;
-      border: 1px solid #FFFFFF;
-      box-sizing: border-box;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      opacity: 1;
-    }
-  </style>
+  <script src="./js//main.js" defer></script>
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">  -->
 </head>
 <body>
   <div id="chart">
-    <div id="female">
-      <div class="track"></div>
-    </div>
-    <div id="male">
-      <div class="track"></div>
+    <div id="plot">
+      <div class="track female">
+        <div class="track-points"></div>
+      </div>
+      <div id="gap-track">
+        <div id="gap">
+          <div id="gap-value"></div>
+        </div>
+      </div>
+      <div class="track male">
+        <div class="track-points"></div>
+      </div>
     </div>
   </div>
 </body>

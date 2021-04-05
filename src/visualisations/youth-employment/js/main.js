@@ -2,6 +2,7 @@ import * as d3 from 'd3'
 import dodge from './dodge.js'
 import minMax from './min-max.js'
 import closestPoint from './closest-point.js'
+import gap from './gap.js'
 import * as data from '/data/unemployment.json'
 
 (function () {
@@ -14,8 +15,8 @@ import * as data from '/data/unemployment.json'
   updateChart(data.default)
 
   function updateChart(d) {
-    updateTrack(chart.select('#female .track'), 'female_youth', 'male_youth')
-    updateTrack(chart.select('#male .track'), 'male_youth', 'female_youth')
+    updateTrack(chart.select('.track.female .track-points'), 'female_youth', 'male_youth')
+    updateTrack(chart.select('.track.male .track-points'), 'male_youth', 'female_youth')
 
     function interact(point) {
       chart.classed('selected', point)
@@ -25,6 +26,8 @@ import * as data from '/data/unemployment.json'
     function select (d) {
       chart.selectAll('.point')
         .classed('active', d2 => d && (d2.GEO_CODE === d.GEO_CODE))
+
+      gap(chart)
     }
 
     function updateTrack(node, dataField, compareFeld) {
@@ -46,6 +49,7 @@ import * as data from '/data/unemployment.json'
           .style('width', POINT_RADIUS * 2 + 'px')
           .style('height', POINT_RADIUS * 2 + 'px')
           .attr('data-group', d => d.group)
+          .attr('data-tooltip', d => d.name)
 
       function mouseMove(event) {
         interact(closestPoint(d3.pointer(event), d3.select(this), POINT_RADIUS))

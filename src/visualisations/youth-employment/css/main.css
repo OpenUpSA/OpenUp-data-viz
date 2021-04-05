@@ -1,0 +1,21 @@
+@import "./point.css";
+@import "./gap.css";
+
+.track {
+  position: relative;
+  height: 140px;
+  display: flex;
+  align-items: flex-start;
+}
+.track ~ .track {
+  align-items: flex-end;
+}
+
+.track-points {
+  position: relative;
+  width: 100%;
+} 
+
+#plot {
+  position: relative;
+}

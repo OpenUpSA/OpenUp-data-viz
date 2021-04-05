@@ -1,0 +1,85 @@
+#gap-track {
+  height: 28px;
+  position: relative;
+}
+
+#gap {
+  position: absolute;
+  height: 100%;
+  background-color: #CCCCCC;
+  overflow: visible;
+}
+
+#gap::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0 auto 0 100%;
+  width: 1px;
+  background-color: inherit;
+}
+
+#gap-value {
+  position: absolute;
+  height: 100%;
+  border-radius: 100px;
+  background-color: #000;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.track.female .gap-edge {
+  bottom: 0%;
+}
+
+.track.male .gap-edge {
+  bottom: 100%;
+}
+
+.gap-edge {
+  position: absolute;
+  overflow: visible;
+  width: 0;
+  pointer-events: none;
+}
+
+.gap-edge::after {
+  content: attr(data-value);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 29px;
+  border-radius: 20px;
+  padding: 0 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.track.male .gap-edge::after {
+  top: 52px;
+  background-color: #3A65D4;
+}
+
+.track.female .gap-edge::after {
+  bottom: 52px;
+  background-color: #B224F7;
+}
+
+.gap-edge svg {
+  display: block;
+  position: absolute;
+  overflow: visible;
+}
+
+.gap-edge line {
+  stroke-width: 1px;
+  stroke-dasharray: 5 6;
+  stroke: #000;
+}
