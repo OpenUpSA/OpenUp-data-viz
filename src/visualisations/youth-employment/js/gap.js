@@ -35,6 +35,7 @@ export default function (chart) {
       function gapEnter (enter) {
         enter.append('div').call(appendLine)
           .attr('class', 'gap-edge')
+          .call(gapUpdate)
       }
       
       function appendLine(node) {

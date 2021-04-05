@@ -1,5 +1,11 @@
 @import "./point.css";
 @import "./gap.css";
+@import "./tick.css";
+
+#plot {
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
 
 .track {
   position: relative;

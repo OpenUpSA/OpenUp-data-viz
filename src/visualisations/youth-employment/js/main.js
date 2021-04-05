@@ -3,6 +3,7 @@ import dodge from './dodge.js'
 import minMax from './min-max.js'
 import closestPoint from './closest-point.js'
 import gap from './gap.js'
+import ticks from './ticks.js'
 import * as data from '/data/unemployment.json'
 
 (function () {
@@ -13,6 +14,7 @@ import * as data from '/data/unemployment.json'
   const chart = d3.select('#chart')
 
   updateChart(data.default)
+  ticks(chart)
 
   function updateChart(d) {
     updateTrack(chart.select('.track.female .track-points'), 'female_youth', 'male_youth')
