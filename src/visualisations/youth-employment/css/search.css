@@ -1,0 +1,31 @@
+#search {
+  position: relative;
+  overflow: visible;
+}
+
+#search input {
+  width: 280px;
+  height: 44px;
+  border-radius: 100px;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  padding-left: 53px;
+  background: #EBEBEB url(../img/search-icon.svg) 22px center no-repeat;
+  outline: none;
+}
+
+#search input:focus {
+  box-shadow: 0 0 0 3px #44C7FF;
+}
+
+#search .list {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 100%;
+}

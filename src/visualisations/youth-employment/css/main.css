@@ -1,6 +1,7 @@
 @import "./point.css";
 @import "./gap.css";
 @import "./tick.css";
+@import "./search.css";
 
 :root {
   --track-label-width: 42px;
