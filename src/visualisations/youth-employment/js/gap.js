@@ -1,18 +1,19 @@
 import relatedPosition from './related-position.js'
 import * as d3 from 'd3'
 
-export default function (chart) {
-  const coords = Array.from(chart.selectAll('.point.active')).map(node => d3.select(node).datum())
-  coords.length && d3.select('#gap').style('inset', gapInset) && d3.select('#gap-value').text(Math.round(Math.abs(coords[0].x - coords[1].x) * 100) + '%')
+export default function (chart, geoCode) {
+  const coords = chart.selectAll('.point')
+    .classed('active', d => d.GEO_CODE === geoCode)
+    .filter(d => d.GEO_CODE === geoCode)
+    .nodes()
+    .map(node => d3.select(node).datum())
+    
+  coords.length && d3.select('#gap').call(node => gapStyle(node)) && d3.select('#gap-value').text(Math.round(Math.abs(coords[0].x - coords[1].x) * 100) + '%')
   chart.selectAll('.track').each(eachTrack)
 
-  function gapInset() {
-    return `
-      0 
-      ${100 - Math.max(coords[0].x, coords[1].x) * 100}%
-      0
-      ${Math.min(coords[0].x, coords[1].x) * 100}%
-      `
+  function gapStyle(node) {
+    node.style('left', `${Math.min(coords[0].x, coords[1].x) * 100}%`)
+    node.style('right', `${100 - Math.max(coords[0].x, coords[1].x) * 100}%`)
   }
   
   function eachTrack(trackD, trackIndex) {
@@ -40,7 +41,7 @@ export default function (chart) {
       
       function appendLine(node) {
         node.append('svg')
-          .attr('width', 0)
+          .attr('width', 1)
           .attr('height', '100%')
           .append('line')
             .attr('x1', '0.5')
@@ -51,13 +52,23 @@ export default function (chart) {
       
       function gapUpdate(update) {
         update.attr('data-value', d => Math.round(d.x * 100) + '%')
-          .style('inset', d => position(d, track.node()))
+          .each(function (d) {
+            position(d3.select(this), d, track.node())
+          })
       }
 
-      function position (d, parent) {
-        return trackIndex > 0 
-          ? `0 auto ${100 - d.gapY / parent.offsetHeight * 100}% ${d.gapX / parent.offsetWidth * 100}%`
-          : `${d.gapY / parent.offsetHeight * 100}% auto 0 ${d.gapX / parent.offsetWidth * 100}%`
+      function position(node, d, parent) {
+        if (trackIndex > 0) {
+          node.style('top', 0)
+            .style('right', 'auto')
+            .style('bottom', `${100 - d.gapY / parent.offsetHeight * 100}%`)
+            .style('left', `${d.gapX / parent.offsetWidth * 100}%`)
+        } else {
+          node.style('top', `${d.gapY / parent.offsetHeight * 100}%`)
+            .style('right', 'auto')
+            .style('bottom', `0`)
+            .style('left', `${d.gapX / parent.offsetWidth * 100}%`)
+        }
       }
   }
 }

@@ -109,3 +109,43 @@
   border-right: 4px solid transparent;
   border-top: 4px solid #000;
 }
+
+.point.mean {
+  box-shadow: none !important;
+  border: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.point.mean.active::before {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  background: none;
+  box-shadow: none;
+  color: #000000;
+}
+
+.point.mean::after {
+  display: none !important;
+}
+
+.female .point.mean.active::before {
+  content: "Average female unemployment";
+  bottom: 100%;
+}
+
+.male .point.mean.active::before {
+  content: "Average male unemployment";
+  top: 100%;
+}
+
+.female .point.mean {
+  top: -20px !important;
+}
+
+.male .point.mean {
+  top: calc(100% + 20px) !important;
+}

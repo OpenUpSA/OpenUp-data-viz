@@ -26,6 +26,27 @@
 #search .list {
   position: absolute;
   left: 0;
-  top: 100%;
+  top: calc(100% + 10px);
   min-width: 100%;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+}
+
+#search .list .item {
+  padding: 10px;
+}
+
+#search .list .item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+#search .list .item:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#search .list .item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

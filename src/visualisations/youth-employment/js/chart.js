@@ -21,6 +21,8 @@ class Chart {
 
     this.updateChart(data.default)
     ticks(this.chart)
+
+    this.selectPoint({ GEO_CODE: 'mean' })
   }
 
   updateChart () {
@@ -30,16 +32,22 @@ class Chart {
 
   updateTrack(d, node, dataField, compareFeld) {
     const x = d => parseFloat(d[dataField])
-    const points = dodge(d, this.options.rowHeight, this.options.pointRadius + this.options.pointPadding, this.options.resolution, x)
+    var points = dodge(d, this.options.rowHeight, this.options.pointRadius + this.options.pointPadding, this.options.resolution, x)
     const { min, max } = minMax(points, dataField, compareFeld)
 
+    points = addMeanPoint(points)
+
     node.style('height', this.options.rowHeight + 'px')
-      .on('mousemove', event => interact(this.chart, closestPoint(d3.pointer(event), node, this.options.pointRadius)))
-      .on('mouseout', () => interact(this.chart))
+      .on('mousemove', event => {
+        const point = closestPoint(d3.pointer(event), node, this.options.pointRadius)
+        this.selectPoint(point && d3.select(point).datum())
+      })
+      .on('mouseout', () => this.selectPoint())
       .selectAll('.point')
       .data(points)
       .join('div')
         .classed('point', true)
+        .classed('mean', d => d.mean)
         .classed('min', d => d.GEO_CODE === min.GEO_CODE)
         .classed('max', d => d.GEO_CODE === max.GEO_CODE)
         .style('left', d => d.x * 100 + '%')
@@ -49,17 +57,14 @@ class Chart {
         .attr('data-group', d => d.group)
         .attr('data-tooltip', d => d.name)
 
-    function interact(chart, point) {
-      chart.classed('selected', point)
-      select(chart, point && d3.select(point).datum())
+    function addMeanPoint(points) {
+      return points.concat([{ x: d3.mean(points, d => d[dataField]), y: 0, mean: true, GEO_CODE: 'mean' }])
     }
+  }
 
-    function select (chart, d) {
-      chart.selectAll('.point')
-        .classed('active', d2 => d && (d2.GEO_CODE === d.GEO_CODE))
-
-      gap(chart)
-    }
+  selectPoint (point) {
+    this.chart.classed('selected', point)
+    gap(this.chart, point && point.GEO_CODE)
   }
 }
 
