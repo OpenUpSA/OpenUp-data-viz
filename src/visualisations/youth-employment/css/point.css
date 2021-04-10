@@ -53,63 +53,6 @@
   background: #B224F7;
 }
 
-.point.active::before {
-  content: attr(data-tooltip);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 29px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background: #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  white-space: nowrap;
-  color: #fff;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  padding: 0 10px;
-}
-
-.male .point.active::before {
-  top: 28px;
-}
-
-.female .point.active::before {
-  bottom: 28px;
-}
-
-.male .point.active::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  top: 24px;
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid #000;
-}
-
-.female .point.active::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  bottom: 24px;
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid #000;
-}
-
 .point.mean {
   box-shadow: none !important;
   border: 0 !important;
@@ -132,20 +75,10 @@
   display: none !important;
 }
 
-.female .point.mean.active::before {
-  content: "Average female unemployment";
-  bottom: 100%;
-}
-
-.male .point.mean.active::before {
-  content: "Average male unemployment";
-  top: 100%;
-}
-
 .female .point.mean {
-  top: -20px !important;
+  top: -30px !important;
 }
 
 .male .point.mean {
-  top: calc(100% + 20px) !important;
+  top: calc(100% + 30px) !important;
 }

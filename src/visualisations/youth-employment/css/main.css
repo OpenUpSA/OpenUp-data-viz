@@ -1,10 +1,19 @@
+
+
 @import "./point.css";
 @import "./gap.css";
 @import "./tick.css";
 @import "./search.css";
+@import "./toggle.css";
+@import "./annotations.css";
 
 :root {
   --track-label-width: 42px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
@@ -26,16 +35,21 @@ h2 {
 }
 
 #toolbar {
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: -7px -7px 20px -7px;
 }
 
-#chart {
-  padding-left: var(--track-label-width);
+#toolbar > div {
+  margin: 7px;
 }
 
 #plot {
   padding-top: 70px;
   padding-bottom: 70px;
+  padding-left: var(--track-label-width);
 }
 
 .track {

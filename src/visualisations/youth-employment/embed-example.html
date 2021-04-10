@@ -1,6 +1,10 @@
 <html>
   <head>
     <style>
+      body, html {
+        height: 100%;
+      }
+
       #embed-container {
           border: 1px solid black;
           padding: 10px;
@@ -30,7 +34,7 @@
       <div id="youth-employment-embed"></div>
       <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
       <script>
-        var pymParent = new pym.Parent('youth-employment-embed', './index.html', {});
+        var pymParent = new pym.Parent('youth-employment-embed', './index.html');
       </script>
     </div>
   </body>

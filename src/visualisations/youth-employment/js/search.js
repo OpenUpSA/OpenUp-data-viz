@@ -23,10 +23,10 @@ export default class {
       .filter(v => v.match)
       .sort((a, b) => a.match.index - b.match.index)
       .slice(0, 5)
+
+    this.search.classed('expanded', matches.length)
     
-    this.search.selectAll('.list').data(matches.length ? [0] : [])
-      .join('div')
-      .classed('list', true)
+    this.search.select('.list')
       .selectAll('.item').data(matches, d => d.name)
         .join('div')
         .classed('item', true)
@@ -35,6 +35,7 @@ export default class {
           this.input.node().value = e.target.textContent
           this.updateList()
           this.handler('select', d)
+          e.stopPropagation()
         })
   }
 }

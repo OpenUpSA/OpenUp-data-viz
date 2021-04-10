@@ -1,0 +1,32 @@
+#youth-toggle {
+  height: 41px;
+  height: 41px;
+  left: 368px;
+  top: 106px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 0;
+  flex-shrink: 1;
+  overflow: visible;
+}
+
+#youth-toggle span {
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+#youth-toggle span.active {
+  background-color: #000;
+  color: #fff;
+}

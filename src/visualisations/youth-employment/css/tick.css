@@ -12,13 +12,16 @@
 }
 
 .tick::after {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
   content: attr(data-text);
   display: block;
   position: absolute;
   top: calc(100% + 6px);
   left: 50%;
   transform: translate(-50%, 0);
-  font-size: 16px;
   font-style: normal;
   font-weight: normal;
   color: #000;

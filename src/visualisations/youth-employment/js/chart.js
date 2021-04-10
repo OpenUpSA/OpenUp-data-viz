@@ -15,55 +15,97 @@ class Chart {
       pointPadding: 2
     }
 
+    this.activePoint = null
+    this.selectedPoint = null
     this.data = data
     this.chart = d3.select(container)
-    this.search = this.chart.select('#search-input')
+    this.ignoreClicks = this.chart.selectAll('.ignore-point-reset').nodes()
 
-    this.updateChart(data.default)
+    this.chart.on('click', e => {
+      for (let i = 0; i < this.ignoreClicks.length; i++) {
+        if (this.ignoreClicks[i].contains(e.target)) return
+      }
+
+      this.lockPoint(null)
+    })
+
+    console.log(this.data.length)
+
     ticks(this.chart)
-
-    this.selectPoint({ GEO_CODE: 'mean' })
   }
 
-  updateChart () {
-    this.updateTrack(this.data, this.chart.select('.track.female .track-points'), 'female_youth', 'male_youth')
-    this.updateTrack(this.data, this.chart.select('.track.male .track-points'), 'male_youth', 'female_youth')
+  updateChart (option) {
+    this.updateTrack(this.data, 'Average female unemployment', this.chart.select('.track.female .track-points'), `female_${option}`, `male_${option}`)
+    this.updateTrack(this.data, 'Average male unemployment', this.chart.select('.track.male .track-points'), `male_${option}`, `female_${option}`)
+    this.highlightPoint(this.activePoint || { GEO_CODE: 'mean' })
   }
 
-  updateTrack(d, node, dataField, compareFeld) {
+  updateTrack(d, meanName, node, dataField, compareFeld) {
     const x = d => parseFloat(d[dataField])
+    const self = this
     var points = dodge(d, this.options.rowHeight, this.options.pointRadius + this.options.pointPadding, this.options.resolution, x)
     const { min, max } = minMax(points, dataField, compareFeld)
 
-    points = addMeanPoint(points)
+    points = addMeanPoint(points, meanName)
 
     node.style('height', this.options.rowHeight + 'px')
       .on('mousemove', event => {
         const point = closestPoint(d3.pointer(event), node, this.options.pointRadius)
-        this.selectPoint(point && d3.select(point).datum())
+        this.highlightPoint(point && d3.select(point).datum())
       })
-      .on('mouseout', () => this.selectPoint())
+      .on('mouseout', () => this.highlightPoint({ GEO_CODE: 'mean' }))
+      .on('click', event => {
+        const point = closestPoint(d3.pointer(event), node, this.options.pointRadius)
+        this.lockPoint(point && d3.select(point).datum())
+      })
       .selectAll('.point')
-      .data(points)
-      .join('div')
-        .classed('point', true)
+      .data(points, d => d.GEO_CODE)
+      .join(
+        enter => enter.append('div').call(initPoints).call(positionPoints),
+        update => update.call(initPoints)
+          .transition()
+          .duration(1500)
+          .call(positionPoints)
+          .tween('gap', () => (() => gap(self.chart, self.activePoint && self.activePoint.GEO_CODE)))
+          .selection(),
+        exit => exit.remove()
+      )
+
+    function initPoints(points) {
+      points.classed('point', true)
+        .style('width', self.options.pointRadius * 2 + 'px')
+        .style('height', self.options.pointRadius * 2 + 'px')
         .classed('mean', d => d.mean)
         .classed('min', d => d.GEO_CODE === min.GEO_CODE)
         .classed('max', d => d.GEO_CODE === max.GEO_CODE)
-        .style('left', d => d.x * 100 + '%')
-        .style('top', d => d.y + 'px')
-        .style('width', this.options.pointRadius * 2 + 'px')
-        .style('height', this.options.pointRadius * 2 + 'px')
         .attr('data-group', d => d.group)
         .attr('data-tooltip', d => d.name)
+    }
+        
+    function positionPoints(points) {
+      points.style('left', d => d.x * 100 + '%')
+        .style('top', d => d.y + 'px')
+    }
 
-    function addMeanPoint(points) {
-      return points.concat([{ x: d3.mean(points, d => d[dataField]), y: 0, mean: true, GEO_CODE: 'mean' }])
+    function addMeanPoint(points, name) {
+      return points.concat([{ x: d3.mean(points, d => d[dataField]), y: 0, mean: true, GEO_CODE: 'mean', name }])
     }
   }
 
-  selectPoint (point) {
+  lockPoint (point) {
+    this.selectedPoint = null
+    this.highlightPoint(point)
+    this.selectedPoint = point
+  }
+
+  highlightPoint (point) {
+    if (this.selectedPoint) {
+      return
+    }
+
+    this.activePoint = point
     this.chart.classed('selected', point)
+    this.chart.selectAll('.point').classed('active', d => point && d.GEO_CODE === point.GEO_CODE)
     gap(this.chart, point && point.GEO_CODE)
   }
 }

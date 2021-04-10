@@ -61,8 +61,7 @@
   pointer-events: none;
 }
 
-.gap-edge::after {
-  content: attr(data-value);
+.gap-edge span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,14 +78,15 @@
   font-size: 16px;
   line-height: 19px;
   color: #fff;
+  overflow: visible;
 }
 
-.track.male .gap-edge::after {
+.track.male .gap-edge span {
   top: 52px;
   background-color: #3A65D4;
 }
 
-.track.female .gap-edge::after {
+.track.female .gap-edge span {
   bottom: 52px;
   background-color: #B224F7;
 }
@@ -101,4 +101,80 @@
   stroke-width: 1px;
   stroke-dasharray: 5 6;
   stroke: #000;
+}
+
+.gap-edge::before {
+  content: attr(data-name);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 29px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  white-space: nowrap;
+  color: #fff;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.male .gap-edge::before {
+  top: calc(100% + 18px);
+}
+
+.female .gap-edge::before {
+  bottom: calc(100% + 18px);
+}
+
+.male .gap-edge::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: calc(100% + 15px);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #000;
+}
+
+.female .gap-edge::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: calc(100% + 15px);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+}
+
+.gap-edge.mean::before {
+  background: none;
+  color: #000;
+  box-shadow: none;
+  height: 30px;
+}
+
+.gap-edge.mean::after {
+  display: none;
+}
+
+.female .gap-edge.mean::before {
+  bottom: 100%;
+}
+
+.male .gap-edge.mean::before {
+  top: 100%;
 }
