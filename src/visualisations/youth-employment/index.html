@@ -6,6 +6,7 @@
   <title>Youth Employment</title>
   <script src="./js//main.js" defer></script>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/mobile.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@400;500&family=Roboto:wght@700&display=swap" rel="stylesheet"> 
 </head>
@@ -40,6 +41,9 @@
     </div>
   </div>
   <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-  <script>var pymChild = new pym.Child();</script>
+  <script>
+    var pymChild = new pym.Child()
+    document.onreadystatechange = () => pymChild.sendHeight()
+  </script>
 </body>
 </html>
