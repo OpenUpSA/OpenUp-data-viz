@@ -2,7 +2,7 @@ import Chart from './chart.js'
 import Search from './search.js'
 import Toggle from './toggle.js'
 import * as data from '/data/unemployment.json'
-import { SELECT } from './events.js'
+import { SELECT } from './constants/events.js'
 
 (function () {
   const chart = new Chart('#chart', data.default)

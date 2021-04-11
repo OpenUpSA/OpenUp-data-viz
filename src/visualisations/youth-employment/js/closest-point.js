@@ -1,4 +1,3 @@
-import { select } from 'd3-selection'
 
 export default function (coord, node, threshold = 20) {
   return Array.from(node.selectAll('.point').filter(filterNodes)).reduce((acc, curr) => lesser(curr, acc), 

@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 1rem;
   background-color: #E4E4E4;
   overflow: visible;
 }
@@ -15,11 +15,11 @@
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 16rem;
   content: attr(data-text);
   display: block;
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 6rem);
   left: 50%;
   transform: translate(-50%, 0);
   font-style: normal;

@@ -4,6 +4,7 @@ import minMax from './min-max.js'
 import closestPoint from './closest-point.js'
 import gap from './gap.js'
 import ticks from './ticks.js'
+import { ALL_UNEMPLOYMENT } from './constants/options.js'
 
 
 class Chart {
@@ -12,7 +13,8 @@ class Chart {
       resolution: 60,
       rowHeight: 50,
       pointRadius: 8,
-      pointPadding: 2
+      pointPadding: 2,
+      tweenDuration: 1500
     }
 
     this.activePoint = null
@@ -29,15 +31,15 @@ class Chart {
       this.lockPoint(null)
     })
 
-    console.log(this.data.length)
-
     ticks(this.chart)
+    this.highlightPoint()
   }
 
   updateChart (option) {
     this.updateTrack(this.data, 'Average female unemployment', this.chart.select('.track.female .track-points'), `female_${option}`, `male_${option}`)
     this.updateTrack(this.data, 'Average male unemployment', this.chart.select('.track.male .track-points'), `male_${option}`, `female_${option}`)
-    this.highlightPoint(this.activePoint || { GEO_CODE: 'mean' })
+    gap(this.chart, this.activePoint.GEO_CODE, this.options.tweenDuration)
+    this.chart.classed('annotations-hide', option === ALL_UNEMPLOYMENT)
   }
 
   updateTrack(d, meanName, node, dataField, compareFeld) {
@@ -51,22 +53,22 @@ class Chart {
     node.style('height', this.options.rowHeight + 'px')
       .on('mousemove', event => {
         const point = closestPoint(d3.pointer(event), node, this.options.pointRadius)
-        this.highlightPoint(point && d3.select(point).datum())
+        point && this.highlightPoint(d3.select(point).datum())
       })
-      .on('mouseout', () => this.highlightPoint({ GEO_CODE: 'mean' }))
+      .on('mouseover', () => this.chart.classed('annotations', false))
+      .on('mouseout', () => this.highlightPoint())
       .on('click', event => {
         const point = closestPoint(d3.pointer(event), node, this.options.pointRadius)
         this.lockPoint(point && d3.select(point).datum())
       })
       .selectAll('.point')
-      .data(points, d => d.GEO_CODE)
+      .data(points)
       .join(
         enter => enter.append('div').call(initPoints).call(positionPoints),
         update => update.call(initPoints)
           .transition()
-          .duration(1500)
+          .duration(this.options.tweenDuration)
           .call(positionPoints)
-          .tween('gap', () => (() => gap(self.chart, self.activePoint && self.activePoint.GEO_CODE)))
           .selection(),
         exit => exit.remove()
       )
@@ -78,6 +80,7 @@ class Chart {
         .classed('mean', d => d.mean)
         .classed('min', d => d.GEO_CODE === min.GEO_CODE)
         .classed('max', d => d.GEO_CODE === max.GEO_CODE)
+        .classed('annotation', d => d.GEO_CODE === max.GEO_CODE || d.GEO_CODE === min.GEO_CODE)
         .attr('data-group', d => d.group)
         .attr('data-tooltip', d => d.name)
     }
@@ -98,15 +101,16 @@ class Chart {
     this.selectedPoint = point
   }
 
-  highlightPoint (point) {
+  highlightPoint (point, duration) {
     if (this.selectedPoint) {
       return
     }
 
-    this.activePoint = point
     this.chart.classed('selected', point)
+    point = point || { GEO_CODE: 'mean' }
+    this.activePoint = point
     this.chart.selectAll('.point').classed('active', d => point && d.GEO_CODE === point.GEO_CODE)
-    gap(this.chart, point && point.GEO_CODE)
+    gap(this.chart, point && point.GEO_CODE, duration)
   }
 }
 

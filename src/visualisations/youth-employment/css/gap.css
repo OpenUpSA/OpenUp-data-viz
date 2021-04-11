@@ -1,11 +1,6 @@
-#chart.selected #gap-track {
-  visibility: visible;
-}
-
 #gap-track {
-  height: 28px;
+  height: 28rem;
   position: relative;
-  visibility: hidden;
 }
 
 #gap {
@@ -23,26 +18,26 @@
   top: 0;
   right: auto;
   bottom: 0;
-  width: 1px;
+  width: 1rem;
   background-color: inherit;
 }
 
 #gap-value {
   position: absolute;
   height: 100%;
-  border-radius: 100px;
+  border-radius: 100rem;
   background-color: #000;
   left: 50%;
   transform: translate(-50%, 0);
   color: #fff;
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0 10rem;
+  box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.25);
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 16rem;
   color: #FFFFFF;
 }
 
@@ -57,8 +52,10 @@
 .gap-edge {
   position: absolute;
   overflow: visible;
-  width: 0;
+  width: 1rem;
   pointer-events: none;
+  background: url(../img/dash-array.svg) repeat-y top center;
+  background-size: contain;
 }
 
 .gap-edge span {
@@ -66,41 +63,29 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 29px;
-  border-radius: 20px;
-  padding: 0 10px;
+  height: 29rem;
+  border-radius: 20rem;
+  padding: 0 10rem;
   left: 50%;
   transform: translate(-50%, 0);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.25);
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 16rem;
+  line-height: 19rem;
   color: #fff;
   overflow: visible;
 }
 
 .track.male .gap-edge span {
-  top: 52px;
+  top: 52rem;
   background-color: #3A65D4;
 }
 
 .track.female .gap-edge span {
-  bottom: 52px;
+  bottom: 52rem;
   background-color: #B224F7;
-}
-
-.gap-edge svg {
-  display: block;
-  position: absolute;
-  overflow: visible;
-}
-
-.gap-edge line {
-  stroke-width: 1px;
-  stroke-dasharray: 5 6;
-  stroke: #000;
 }
 
 .gap-edge::before {
@@ -109,27 +94,32 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 29px;
+  height: 29rem;
   left: 50%;
   transform: translate(-50%, 0);
   background: #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.25);
+  border-radius: 20rem;
   white-space: nowrap;
   color: #fff;
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  padding: 0 10px;
+  font-size: 14rem;
+  padding: 0 10rem;
+  z-index: 20;
 }
 
+
+.gap-edge::before, .gap-edge::after {
+  z-index: 10;
+}
 .male .gap-edge::before {
-  top: calc(100% + 18px);
+  top: calc(100% + 18rem);
 }
 
 .female .gap-edge::before {
-  bottom: calc(100% + 18px);
+  bottom: calc(100% + 18rem);
 }
 
 .male .gap-edge::after {
@@ -138,12 +128,12 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  top: calc(100% + 15px);
+  top: calc(100% + 15rem);
   width: 0;
   height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid #000;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-bottom: 4rem solid #000;
 }
 
 .female .gap-edge::after {
@@ -152,19 +142,27 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: calc(100% + 15px);
+  bottom: calc(100% + 15rem);
   width: 0;
   height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid #000;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-top: 4rem solid #000;
+}
+
+.female .gap-edge.mean {
+  top: -30rem !important;
+}
+
+.male .gap-edge.mean {
+  bottom: -30rem !important;
 }
 
 .gap-edge.mean::before {
   background: none;
   color: #000;
   box-shadow: none;
-  height: 30px;
+  height: 30rem;
 }
 
 .gap-edge.mean::after {

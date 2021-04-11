@@ -11,6 +11,7 @@
 </head>
 <body>
   <div id="chart" class="annotations">
+    <div id="title">Gender unemployment in South Africa by municipality</div>
     <div id="toolbar">
       <div id="search">
         <input placeholder="Search for a municipality" />
@@ -22,15 +23,16 @@
       </div>
       <div id="hover-to-interact" class="annotation">Hover or click to interact!</div>
     </div>
-    <h2>Unemployment rate</h2>
+    <div id="name">
+      <div class="annotation better"></div>
+      <div class="annotation worse"></div>
+      <h2>Unemployment rate</h2>
+    </div>
     <div id="plot">
       <div class="track female">
         <div class="track-points ignore-point-reset" data-label="Female"></div>
       </div>
       <div id="gap-track">
-        <div id="gap">
-          <div id="gap-value"></div>
-        </div>
       </div>
       <div class="track male">
         <div class="track-points ignore-point-reset" data-label="Male"></div>

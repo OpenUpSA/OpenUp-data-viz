@@ -1,9 +1,10 @@
 #search {
   position: relative;
   overflow: visible;
-  flex-grow: 1;
+  flex-grow: 0;
   flex-shrink: 1;
   font-family: Poppins;
+  width: 280px;
 }
 
 #search input {

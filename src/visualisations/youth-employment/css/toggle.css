@@ -20,10 +20,11 @@
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 16rem;
   color: rgba(0, 0, 0, 0.4);
   border-radius: 100px;
   cursor: pointer;
+  flex-grow: 1;
 }
 
 #youth-toggle span.active {
