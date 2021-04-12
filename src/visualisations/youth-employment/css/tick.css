@@ -3,11 +3,12 @@
   top: 0;
   bottom: 0;
   width: 1rem;
-  background-color: #E4E4E4;
+  background-color: #e4e4e4;
   overflow: visible;
 }
 
-.tick:first-of-type, .tick:last-of-type {
+.tick:first-of-type,
+.tick:last-of-type {
   display: none;
 }
 

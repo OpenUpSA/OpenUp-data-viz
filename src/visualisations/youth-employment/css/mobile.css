@@ -20,7 +20,8 @@
 }
 
 @media screen and (max-width: 650px) {
-  #youth-toggle, #hover-to-interact {
+  #youth-toggle,
+  #hover-to-interact {
     width: 100%;
   }
 
@@ -37,7 +38,7 @@
     left: calc(100% + 25rem) !important;
     white-space: normal;
   }
-  
+
   .female .gap-edge span.annotation::after {
     top: calc(100% + 5rem) !important;
     left: calc(50% + 8rem) !important;
@@ -50,7 +51,7 @@
     white-space: normal;
     width: 150rem;
   }
-  
+
   #gap-value.annotation::after {
     left: 50% !important;
     top: calc(100% + 8rem) !important;
@@ -61,14 +62,15 @@
     right: calc(100% + 45rem);
     white-space: normal;
   }
-  
+
   .male .gap-edge span.annotation::after {
     bottom: calc(50% + 15rem);
     right: calc(100% + 5rem);
     transform: rotate(180deg);
   }
 
-  #name .annotation.worse::after, #name .annotation.better::before {
+  #name .annotation.worse::after,
+  #name .annotation.better::before {
     width: 30rem !important;
   }
 }

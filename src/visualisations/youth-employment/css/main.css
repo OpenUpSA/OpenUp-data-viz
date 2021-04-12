@@ -1,11 +1,9 @@
-
-@import "./point.css";
-@import "./gap.css";
-@import "./tick.css";
-@import "./search.css";
-@import "./toggle.css";
-@import "./annotations.css";
-
+@import './point.css';
+@import './gap.css';
+@import './tick.css';
+@import './search.css';
+@import './toggle.css';
+@import './annotations.css';
 
 :root {
   --track-label-width: 42rem;
@@ -13,7 +11,8 @@
   --annotations-animation-duration: 0.5s;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }
@@ -32,14 +31,14 @@ body {
 }
 
 #title {
-  border-bottom: 1rem solid #EDEDED;
+  border-bottom: 1rem solid #ededed;
   position: relative;
   padding: 19rem 0;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: 24rem;
-  color: #25215D;
+  color: #25215d;
   margin-bottom: 30rem;
   background: url(../img/openup-logo.svg) no-repeat right center;
   background-size: 119rem;
@@ -52,7 +51,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 40rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border-radius: 100rem;
   margin-bottom: 37rem;
 }
@@ -82,7 +81,7 @@ body {
 #hover-to-interact {
   height: 40rem;
   border-radius: 100rem;
-  background-color: #25215D;
+  background-color: #25215d;
   background-image: url(../img/hover-icon.svg);
   background-size: 16rem;
   background-repeat: no-repeat;
@@ -124,7 +123,7 @@ body {
   top: 50%;
   transform-origin: 50% 100%;
   transform: translate(-50%, -100%) rotate(-90deg);
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   border-radius: 100rem;
   font-family: Poppins;
   font-style: normal;
@@ -140,7 +139,7 @@ body {
 .track-points {
   position: relative;
   width: 100%;
-} 
+}
 
 #plot {
   position: relative;

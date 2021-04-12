@@ -4,20 +4,24 @@ import Toggle from './toggle.js'
 import * as data from '/data/unemployment.json'
 import { SELECT } from './constants/events.js'
 
-(function () {
+;(function () {
   const chart = new Chart('#chart', data.default)
-  const search = new Search('#search', data.default, (type, data) => searchHandler(type, data))
-  const toggle = new Toggle('#youth-toggle', (type, data) => toggleHandler(type, data))
+  const search = new Search('#search', data.default, (type, data) =>
+    searchHandler(type, data)
+  )
+  const toggle = new Toggle('#youth-toggle', (type, data) =>
+    toggleHandler(type, data)
+  )
 
   toggle.select('youth')
 
-  function toggleHandler (type, option) {
+  function toggleHandler(type, option) {
     if (type === SELECT) {
       chart.updateChart(option)
     }
   }
 
-  function searchHandler (type, data) {
+  function searchHandler(type, data) {
     if (type === SELECT) {
       chart.lockPoint(data)
     }

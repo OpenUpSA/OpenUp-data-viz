@@ -1,10 +1,10 @@
-
 export default function (coord, node, threshold = 20) {
-  return Array.from(node.selectAll('.point').filter(filterNodes)).reduce((acc, curr) => lesser(curr, acc), 
+  return Array.from(node.selectAll('.point').filter(filterNodes)).reduce(
+    (acc, curr) => lesser(curr, acc),
     { distance: Infinity, point: null }
   ).point
 
-  function lesser (point, acc) {
+  function lesser(point, acc) {
     const distance = dist(coord, point)
     if (distance < threshold && distance < acc.distance) {
       return { distance, point }

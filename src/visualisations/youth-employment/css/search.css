@@ -19,12 +19,12 @@
   font-weight: normal;
   font-size: 16px;
   padding-left: 53px;
-  background: #EBEBEB url(../img/search-icon.svg) 22px center no-repeat;
+  background: #ebebeb url(../img/search-icon.svg) 22px center no-repeat;
   outline: none;
 }
 
 #search input:focus {
-  box-shadow: inset 0 0 0 3px #44C7FF;
+  box-shadow: inset 0 0 0 3px #44c7ff;
 }
 
 #search .list {

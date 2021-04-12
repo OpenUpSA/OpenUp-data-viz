@@ -1,12 +1,13 @@
-#chart.selected .annotation::before, 
+#chart.selected .annotation::before,
 #chart.selected .annotation::after,
 #chart.annotations-hide .annotation::before,
 #chart.annotations-hide .annotation::after {
   opacity: 0;
 }
 
-.annotation::before, .annotation::after {
-  content: "";
+.annotation::before,
+.annotation::after {
+  content: '';
   display: block;
   position: absolute;
   font-family: 'Pangolin';
@@ -17,7 +18,8 @@
   color: #000;
 }
 
-.annotation::before, .annotation::after {
+.annotation::before,
+.annotation::after {
   opacity: 1;
   transition: opacity var(--annotations-animation-duration);
   pointer-events: none;
@@ -27,13 +29,13 @@
   left: calc(50% - 26rem);
   top: calc(100% + 26rem);
   transform: translateX(-50%);
-  content: "Muni with lowest gender gap"
+  content: 'Muni with lowest gender gap';
 }
 
 .female .point.annotation.max::before {
   left: calc(100% + 7rem);
   bottom: calc(100% + 20rem);
-  content: "Muni with highest gender gap"
+  content: 'Muni with highest gender gap';
 }
 
 .female .point.annotation.min::after {
@@ -57,7 +59,7 @@
 }
 
 #gap-value.annotation::before {
-  content: "Unemployment gap (lower value is preferable*)";
+  content: 'Unemployment gap (lower value is preferable*)';
   left: calc(50% + 50rem);
   top: calc(100% + 28rem);
 }
@@ -81,11 +83,10 @@
 }
 
 .female .gap-edge span.annotation::before {
-  content: "Female unemployment rate";
+  content: 'Female unemployment rate';
   top: calc(100% + 16rem);
   left: calc(100% + 53rem);
 }
-
 
 .female .gap-edge span.annotation::after {
   top: calc(50% + 5rem);
@@ -94,7 +95,7 @@
 }
 
 .male .gap-edge span.annotation::before {
-  content: "Male unemployment rate";
+  content: 'Male unemployment rate';
   bottom: calc(100% + 16rem);
   right: calc(100% + 45rem);
 }
@@ -119,13 +120,13 @@
 
 #name .annotation.better::after {
   position: relative;
-  content: "Better";
+  content: 'Better';
   display: block;
   margin-left: 11rem;
 }
 
 #name .annotation.better::before {
-  content: "";
+  content: '';
   position: relative;
   display: block;
   width: 55rem;
@@ -142,13 +143,13 @@
 
 #name .annotation.worse::before {
   position: relative;
-  content: "Worse";
+  content: 'Worse';
   display: block;
   margin-right: 11rem;
 }
 
 #name .annotation.worse::after {
-  content: "";
+  content: '';
   position: relative;
   display: block;
   width: 55rem;
