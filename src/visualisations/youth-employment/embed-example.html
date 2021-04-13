@@ -11,20 +11,18 @@
           border: 1px solid black;
           padding: 10px;
           margin: 10px;
+          overflow: auto;
       }
 
     </style>
   </head>
   <body>
     <p>Embed this visualisation by pasting the following HTML code in an HTML embed block in your site:</p>
-    <pre>
-&#x3C;div id=&#x22;youth-employment-embed&#x22;&#x3E;&#x3C;/div&#x3E;
-  &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;https://pym.nprapps.org/pym.v1.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
-  &#x3C;script&#x3E;
-    var pymParent = new pym.Parent(&#x27;youth-employment-embed&#x27;, &#x27;https://viz.openup.org.za/visualisations/youth-employment/index.html&#x27;, {});
-  &#x3C;/script&#x3E;
-&#x3C;/div&#x3E;
-    </pre>
+<pre>&lt;div id="youth-employment-embed"&gt;&lt;/div&gt;
+&lt;script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  var pymParent = new pym.Parent('youth-employment-embed', 'https://viz.openup.org.za/visualisations/youth-employment/index.html', {});
+&lt;/script&gt;</pre>
     <p>Example:</p>
     <div id="embed-container">
       <div id="youth-employment-embed"></div>

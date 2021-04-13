@@ -1,5 +1,60 @@
-<div>viz</div>
-<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-<script>
-var pymChild = new pym.Child();
-</script>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Youth Employment</title>
+    <script src="./js//main.js" defer></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pangolin&family=Poppins:wght@400;500&family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="chart" class="annotations">
+      <div id="title">Gender unemployment in South Africa by municipality</div>
+      <div id="toolbar">
+        <div id="search">
+          <input placeholder="Search for a municipality" />
+          <div class="list ignore-point-reset"></div>
+        </div>
+        <div id="youth-toggle" class="ignore-point-reset">
+          <span data-value="youth">Youth unemployment</span>
+          <span data-value="allpopu">All unemployment</span>
+        </div>
+        <div id="hover-to-interact" class="annotation">
+          Hover or click to interact!
+        </div>
+      </div>
+      <div id="name">
+        <div class="annotation better"></div>
+        <div class="annotation worse"></div>
+        <h2>Unemployment rate</h2>
+      </div>
+      <div id="plot">
+        <div class="track female">
+          <div
+            class="track-points ignore-point-reset"
+            data-label="Female"
+          ></div>
+        </div>
+        <div id="gap-track"></div>
+        <div class="track male">
+          <div class="track-points ignore-point-reset" data-label="Male"></div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://pym.nprapps.org/pym.v1.min.js"
+    ></script>
+    <script>
+      var pymChild = new pym.Child()
+      document.onreadystatechange = () => pymChild.sendHeight()
+    </script>
+  </body>
+</html>

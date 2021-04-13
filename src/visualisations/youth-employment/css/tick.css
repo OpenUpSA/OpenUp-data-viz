@@ -1,0 +1,29 @@
+.tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  background-color: #e4e4e4;
+  overflow: visible;
+}
+
+.tick:first-of-type,
+.tick:last-of-type {
+  display: none;
+}
+
+.tick::after {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16rem;
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: calc(100% + 6rem);
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-style: normal;
+  font-weight: normal;
+  color: #000;
+}

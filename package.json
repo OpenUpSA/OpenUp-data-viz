@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "d3": "6.6.2",
+    "eslint": "^7.24.0",
     "parcel-bundler": "^1.12.5"
   },
   "scripts": {

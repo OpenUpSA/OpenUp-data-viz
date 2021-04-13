@@ -1,0 +1,178 @@
+#gap-track {
+  height: 28rem;
+  position: relative;
+}
+
+#gap {
+  position: absolute;
+  height: 100%;
+  background-color: #cccccc;
+  overflow: visible;
+}
+
+#gap::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  width: 1rem;
+  background-color: inherit;
+}
+
+#gap-value {
+  position: absolute;
+  height: 100%;
+  border-radius: 100rem;
+  background-color: #000;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 10rem;
+  box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.25);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16rem;
+  color: #ffffff;
+}
+
+.track.female .gap-edge {
+  bottom: 0%;
+}
+
+.track.male .gap-edge {
+  bottom: 100%;
+}
+
+.gap-edge {
+  position: absolute;
+  overflow: visible;
+  width: 1rem;
+  pointer-events: none;
+  background: url(../img/dash-array.svg) repeat-y top center;
+  background-size: contain;
+}
+
+.gap-edge span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 29rem;
+  border-radius: 20rem;
+  padding: 0 10rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.25);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16rem;
+  line-height: 19rem;
+  color: #fff;
+  overflow: visible;
+}
+
+.track.male .gap-edge span {
+  top: 52rem;
+  background-color: #3a65d4;
+}
+
+.track.female .gap-edge span {
+  bottom: 52rem;
+  background-color: #b224f7;
+}
+
+.gap-edge::before {
+  content: attr(data-name);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 29rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #000000;
+  box-shadow: 0rem 4rem 4rem rgba(0, 0, 0, 0.25);
+  border-radius: 20rem;
+  white-space: nowrap;
+  color: #fff;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14rem;
+  padding: 0 10rem;
+  z-index: 20;
+}
+
+.gap-edge::before,
+.gap-edge::after {
+  z-index: 10;
+}
+.male .gap-edge::before {
+  top: calc(100% + 18rem);
+}
+
+.female .gap-edge::before {
+  bottom: calc(100% + 18rem);
+}
+
+.male .gap-edge::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: calc(100% + 15rem);
+  width: 0;
+  height: 0;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-bottom: 4rem solid #000;
+}
+
+.female .gap-edge::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: calc(100% + 15rem);
+  width: 0;
+  height: 0;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-top: 4rem solid #000;
+}
+
+.female .gap-edge.mean {
+  top: -30rem !important;
+}
+
+.male .gap-edge.mean {
+  bottom: -30rem !important;
+}
+
+.gap-edge.mean::before {
+  background: none;
+  color: #000;
+  box-shadow: none;
+  height: 30rem;
+}
+
+.gap-edge.mean::after {
+  display: none;
+}
+
+.female .gap-edge.mean::before {
+  bottom: 100%;
+}
+
+.male .gap-edge.mean::before {
+  top: 100%;
+}

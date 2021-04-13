@@ -1,0 +1,148 @@
+@import './point.css';
+@import './gap.css';
+@import './tick.css';
+@import './search.css';
+@import './toggle.css';
+@import './annotations.css';
+
+:root {
+  --track-label-width: 42rem;
+  --main-animation-duration: 0.5s;
+  --annotations-animation-duration: 0.5s;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+html {
+  font-size: 1px;
+}
+
+body {
+  font-size: 16rem;
+  overflow-x: hidden;
+}
+
+#chart {
+  padding-bottom: 35rem;
+}
+
+#title {
+  border-bottom: 1rem solid #ededed;
+  position: relative;
+  padding: 19rem 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24rem;
+  color: #25215d;
+  margin-bottom: 30rem;
+  background: url(../img/openup-logo.svg) no-repeat right center;
+  background-size: 119rem;
+  padding-right: 150rem;
+}
+
+#name {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 40rem;
+  background: #f2f2f2;
+  border-radius: 100rem;
+  margin-bottom: 37rem;
+}
+
+#name h2 {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16rem;
+  color: #000000;
+}
+
+#toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: -7rem -7rem 23rem -7rem;
+}
+
+#toolbar > div {
+  margin: 7rem;
+}
+
+#hover-to-interact {
+  height: 40rem;
+  border-radius: 100rem;
+  background-color: #25215d;
+  background-image: url(../img/hover-icon.svg);
+  background-size: 16rem;
+  background-repeat: no-repeat;
+  background-position: 17rem center;
+  padding: 0 20rem 0 45rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: Pangolin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16rem;
+}
+
+#plot {
+  padding-top: 70rem;
+  padding-bottom: 70rem;
+  padding-left: var(--track-label-width);
+}
+
+.track {
+  position: relative;
+  height: 140rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.track-points::before {
+  content: attr(data-label);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 176rem;
+  height: var(--track-label-width);
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) rotate(-90deg);
+  background-color: #f2f2f2;
+  border-radius: 100rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16rem;
+  color: #000;
+}
+
+.track ~ .track {
+  align-items: flex-end;
+}
+
+.track-points {
+  position: relative;
+  width: 100%;
+}
+
+#plot {
+  position: relative;
+}

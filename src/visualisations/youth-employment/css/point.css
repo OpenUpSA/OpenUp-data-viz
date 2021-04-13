@@ -1,0 +1,79 @@
+.female .point {
+  background-color: rgba(177, 32, 245, 0.25);
+}
+
+.male .point {
+  background-color: rgba(41, 88, 208, 0.25);
+}
+
+.point {
+  position: absolute;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity var(--main-animation-duration);
+}
+
+.point.min,
+.point.max {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+.male .point.min,
+.female .point.min {
+  background-color: #00ab52;
+}
+
+.male .point.max,
+.female .point.max {
+  background-color: #f52020;
+}
+
+#chart.selected .point:not(.active) {
+  opacity: 0.5;
+}
+
+.male .point.active,
+.female .point.active {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  z-index: 11;
+  transition: none;
+  overflow: visible;
+}
+
+.male .point.active {
+  background: #325fd2;
+}
+
+.female .point.active {
+  background: #b224f7;
+}
+
+.point.mean {
+  box-shadow: none !important;
+  border: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.point.mean.active::before {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  background: none;
+  box-shadow: none;
+  color: #000000;
+}
+
+.point.mean::after {
+  display: none !important;
+}

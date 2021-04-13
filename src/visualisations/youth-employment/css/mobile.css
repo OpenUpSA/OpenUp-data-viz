@@ -1,0 +1,76 @@
+@media screen and (max-width: 1050px) {
+  #search {
+    width: 100% !important;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 0.75px !important;
+  }
+
+  .female .gap-edge span {
+    bottom: 35rem !important;
+  }
+
+  .male .gap-edge span {
+    top: 35rem !important;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #youth-toggle,
+  #hover-to-interact {
+    width: 100%;
+  }
+
+  .female .point.annotation.min::before {
+    left: calc(50% + 26rem) !important;
+  }
+
+  .female .point.annotation.max::before {
+    left: -50rem !important;
+  }
+
+  .female .gap-edge span.annotation::before {
+    top: 20rem !important;
+    left: calc(100% + 25rem) !important;
+    white-space: normal;
+  }
+
+  .female .gap-edge span.annotation::after {
+    top: calc(100% + 5rem) !important;
+    left: calc(50% + 8rem) !important;
+    transform: rotate(-10deg) scale(0.8) !important;
+  }
+
+  #gap-value.annotation::before {
+    top: calc(100% + 5rem) !important;
+    left: calc(100% + 15rem) !important;
+    white-space: normal;
+    width: 150rem;
+  }
+
+  #gap-value.annotation::after {
+    left: 50% !important;
+    top: calc(100% + 8rem) !important;
+    transform: rotate(0deg) scale(0.8) !important;
+  }
+
+  .male .gap-edge span.annotation::before {
+    right: calc(100% + 45rem);
+    white-space: normal;
+  }
+
+  .male .gap-edge span.annotation::after {
+    bottom: calc(50% + 15rem);
+    right: calc(100% + 5rem);
+    transform: rotate(180deg);
+  }
+
+  #name .annotation.worse::after,
+  #name .annotation.better::before {
+    width: 30rem !important;
+  }
+}
