@@ -29,13 +29,13 @@
 
 #search .list {
   position: absolute;
-  left: 0;
+  left: 10px;
   top: calc(100% + 10px);
-  min-width: 100%;
+  min-width: calc(100% - 20px);
   z-index: 100;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
   display: none;
 }
