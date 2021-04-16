@@ -25,7 +25,7 @@ html {
 
 body {
   font-size: 16rem;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 #chart {
