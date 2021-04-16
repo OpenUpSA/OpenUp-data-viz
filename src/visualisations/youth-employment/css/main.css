@@ -103,7 +103,7 @@ body {
 #plot {
   padding-top: 70rem;
   padding-bottom: 70rem;
-  padding-left: var(--track-label-width);
+  margin-left: var(--track-label-width);
 }
 
 .track {
