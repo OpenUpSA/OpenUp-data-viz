@@ -88,7 +88,7 @@ class Chart {
         this.lockPoint(point && d3.select(point).datum())
       })
       .selectAll('.point')
-      .data(points)
+      .data(points, d => d.GEO_CODE)
       .join(
         (enter) => enter.append('div').call(initPoints).call(positionPoints),
         (update) =>
