@@ -1,2 +1,2 @@
-export const YOUTH_UNEMPLOYMENT = 'youth'
+export const YOUTH_EDU = 'hiedu'
 export const ALL_UNEMPLOYMENT = 'allpopu'

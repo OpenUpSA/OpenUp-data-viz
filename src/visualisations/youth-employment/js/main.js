@@ -13,7 +13,7 @@ import { SELECT } from './constants/events.js'
     toggleHandler(type, data)
   )
 
-  toggle.select('youth')
+  toggle.select('hiedu')
 
   function toggleHandler(type, option) {
     if (type === SELECT) {
