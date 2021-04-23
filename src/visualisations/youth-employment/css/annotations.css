@@ -59,7 +59,7 @@
 }
 
 #gap-value.annotation::before {
-  content: 'Unemployment gap (lower value is preferable*)';
+  content: 'Gender Gap of Educational Achievement';
   left: calc(50% + 50rem);
   top: calc(100% + 28rem);
 }
@@ -83,7 +83,7 @@
 }
 
 .female .gap-edge span.annotation::before {
-  content: 'Female unemployment rate';
+  content: 'Percentage of female youth with at least a matric education';
   top: calc(100% + 16rem);
   left: calc(100% + 53rem);
 }
@@ -95,7 +95,7 @@
 }
 
 .male .gap-edge span.annotation::before {
-  content: 'Male unemployment rate';
+  content: 'Percentage of male youth with at least a matric education';
   bottom: calc(100% + 16rem);
   right: calc(100% + 45rem);
 }
@@ -112,43 +112,15 @@
   position: absolute;
 }
 
+
+
 #name .annotation.better {
-  left: 25rem;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
-#name .annotation.better::after {
-  position: relative;
-  content: 'Better';
-  display: block;
-  margin-left: 11rem;
-}
-
-#name .annotation.better::before {
-  content: '';
-  position: relative;
-  display: block;
-  width: 55rem;
-  height: 12rem;
-  background: url(../img/arrow-straight.svg) no-repeat center center;
-  background-size: contain;
-}
-
-#name .annotation.worse {
   right: 25rem;
   top: 50%;
   transform: translate(0, -50%);
 }
 
-#name .annotation.worse::before {
-  position: relative;
-  content: 'Worse';
-  display: block;
-  margin-right: 11rem;
-}
-
-#name .annotation.worse::after {
+#name .annotation.better::after {
   content: '';
   position: relative;
   display: block;
@@ -158,3 +130,33 @@
   background-size: contain;
   transform: scale(-1, 1);
 }
+
+#name .annotation.better::before {
+  position: relative;
+  content: 'Better';
+  display: block;
+  margin-right: 11rem;
+}
+
+#name .annotation.worse {
+  left: 25rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#name .annotation.worse::before {
+  content: '';
+  position: relative;
+  display: block;
+  width: 55rem;
+  height: 12rem;
+  background: url(../img/arrow-straight.svg) no-repeat center center;
+  background-size: contain;
+}
+
+#name .annotation.worse::after {
+  position: relative;
+  content: 'Worse';
+  display: block;
+  margin-left: 11rem;
+} 
