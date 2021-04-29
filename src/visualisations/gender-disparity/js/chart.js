@@ -37,14 +37,14 @@ class Chart {
   updateChart(option) {
     this.updateTrack(
       this.data,
-      'Average female unemployment',
+      'National average for female',
       this.chart.select('.track.female .track-points'),
       `female_${option}`,
       `male_${option}`
     )
     this.updateTrack(
       this.data,
-      'Average male unemployment',
+      'National average for male',
       this.chart.select('.track.male .track-points'),
       `male_${option}`,
       `female_${option}`
