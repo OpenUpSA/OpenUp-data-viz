@@ -1,7 +1,7 @@
 import Chart from './chart.js'
 import Search from './search.js'
 import Toggle from './toggle.js'
-import * as data from '/data/unemployment.json'
+import * as data from '/data/muni-unemployment-education.json'
 import { SELECT } from './constants/events.js'
 
 ;(function () {
