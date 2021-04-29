@@ -4,8 +4,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Youth Educational Achievement</title>
-    <script src="./js//education_main.js" defer></script>
+    <title>Youth Employment</title>
+    <script src="./js//main.js" defer></script>
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/mobile.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -16,24 +16,24 @@
   </head>
   <body>
     <div id="chart" class="annotations">
-      <div id="title">Percentage Of Youth aged 20-24 who have at least a Matric Education</div>
+      <div id="title">Unemployment rates in South African municipalities</div>
       <div id="toolbar">
         <div id="search">
           <input placeholder="Search for a municipality" />
           <div class="list ignore-point-reset"></div>
         </div>
         <div id="youth-toggle" class="ignore-point-reset">
-          <span data-value="hiedu">Highest educational level</span>
-          <!-- <span data-value="allpopu">All unemployment</span> -->
+          <span data-value="youth_unemployment">Youth unemployment</span>
+          <span data-value="allpopu_unemployment">All unemployment</span>
         </div>
         <div id="hover-to-interact" class="annotation">
           Hover or click to interact!
         </div>
       </div>
-      <div id="name" class="education">
+      <div id="name" class="employment">
         <div class="annotation better"></div>
         <div class="annotation worse"></div>
-        <h2>Percentage with at least a matric education</h2>
+        <h2>Unemployment rate</h2>
       </div>
       <div id="plot">
         <div class="track female">
