@@ -85,7 +85,7 @@
 
 .track.female .gap-edge span {
   bottom: 52rem;
-  background-color: #b224f7;
+  background-color: rgb(231,32,200);
 }
 
 .gap-edge::before {

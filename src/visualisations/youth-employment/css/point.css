@@ -1,5 +1,5 @@
 .female .point {
-  background-color: rgba(177, 32, 245, 0.25);
+  background-color:rgba(231,32,200,.25) ;
 }
 
 .male .point {
@@ -53,7 +53,7 @@
 }
 
 .female .point.active {
-  background: #b224f7;
+  background:rgb(231,32,200) ;
 }
 
 .point.mean {
