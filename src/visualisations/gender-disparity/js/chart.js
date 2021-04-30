@@ -148,7 +148,7 @@ class Chart {
     }
 
     this.chart.classed('selected', point)
-    point = point || { GEO_CODE: 'mean' }
+    point = point || { GEO_CODE: 'ZA' }
     this.activePoint = point
     this.chart
       .selectAll('.point')
