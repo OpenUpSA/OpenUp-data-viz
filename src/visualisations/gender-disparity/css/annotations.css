@@ -65,7 +65,7 @@
 }
 
 .education #gap-value.annotation::before {
-  content: 'Gender Gap of Educational Achievement';
+  content: 'Gender Gap in Educational Achievement';
   left: calc(50% + 50rem);
   top: calc(100% + 28rem);
 }
@@ -228,5 +228,4 @@
   display: block;
   margin-left: 11rem;
 } 
-
 

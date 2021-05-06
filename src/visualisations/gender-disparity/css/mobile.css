@@ -79,6 +79,7 @@
   }
 
   .education .male .gap-edge span.annotation::before{
+    right: calc(100% + 35rem);
     font-size: 12rem;
     bottom: 10rem;
   }
@@ -94,4 +95,8 @@
   #name .annotation.better::before {
     width: 30rem !important;
   }
+  .education #name h2{
+    font-size: 13rem;
+  } 
 }
+
