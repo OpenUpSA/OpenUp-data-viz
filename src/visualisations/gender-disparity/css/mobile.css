@@ -25,10 +25,12 @@
     width: 100%;
   }
 
-  .female .point.annotation.min::before {
-    left: calc(50% + 12rem) !important;
+  .employment .female .point.annotation.min::before {
+    left: calc(50% + 25rem) !important;
   }
-
+  .education .female .point.annotation.min::before {
+    left: calc(50% - 5rem) !important;
+  }
   .female .point.annotation.max::before {
     left: -50rem !important;
   }
