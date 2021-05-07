@@ -25,10 +25,12 @@
     width: 100%;
   }
 
-  .female .point.annotation.min::before {
-    left: calc(50% + 26rem) !important;
+  .employment .female .point.annotation.min::before {
+    left: calc(50% + 25rem) !important;
   }
-
+  .education .female .point.annotation.min::before {
+    left: calc(50% - 5rem) !important;
+  }
   .female .point.annotation.max::before {
     left: -50rem !important;
   }
@@ -44,6 +46,15 @@
     left: calc(50% + 8rem) !important;
     transform: rotate(-10deg) scale(0.8) !important;
   }
+ .education .male .gap-edge span.annotation::before{
+    font-size: 12rem;
+    bottom: 10rem;
+
+  }
+  .education .female .gap-edge span.annotation::before{
+    font-size: 12rem;
+    top:-10rem !important;
+  }
 
   #gap-value.annotation::before {
     top: calc(100% + 5rem) !important;
@@ -51,6 +62,10 @@
     white-space: normal;
     width: 150rem;
   }
+  .education #gap-value.annotation::before {
+    bottom: 0rem !important;
+    top: calc(100% + 15rem) !important;
+}
 
   #gap-value.annotation::after {
     left: 50% !important;
@@ -63,14 +78,27 @@
     white-space: normal;
   }
 
+  .education .male .gap-edge span.annotation::before{
+    right: calc(100% + 35rem);
+    font-size: 12rem;
+    bottom: 10rem;
+  }
+
   .male .gap-edge span.annotation::after {
     bottom: calc(50% + 15rem);
     right: calc(100% + 5rem);
     transform: rotate(180deg);
   }
 
+
   #name .annotation.worse::after,
   #name .annotation.better::before {
     width: 30rem !important;
   }
+ 
+  .education #name .annotation.worse::before,  
+  .education #name .annotation.better::after{
+    width: 30rem !important;
+  }
 }
+

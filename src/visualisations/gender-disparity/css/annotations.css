@@ -58,13 +58,19 @@
   transform: rotate(-60deg);
 }
 
-#gap-value.annotation::before {
+.employment #gap-value.annotation::before {
   content: 'Unemployment gap (lower value is preferable*)';
   left: calc(50% + 50rem);
   top: calc(100% + 28rem);
 }
 
-#gap-value.annotation::after {
+.education #gap-value.annotation::before {
+  content: 'Gender Gap in Educational Achievement';
+  left: calc(50% + 50rem);
+  top: calc(100% + 28rem);
+}
+
+ #gap-value.annotation::after {
   left: calc(50% + 6rem);
   top: calc(100% + 12rem);
   width: 35rem;
@@ -82,8 +88,14 @@
   background-size: contain;
 }
 
-.female .gap-edge span.annotation::before {
+.employment .female .gap-edge span.annotation::before {
   content: 'Female unemployment rate';
+  top: calc(100% + 16rem);
+  left: calc(100% + 53rem);
+}
+
+.education .female .gap-edge span.annotation::before {
+  content: 'Percentage of female youth with at least a matric education';
   top: calc(100% + 16rem);
   left: calc(100% + 53rem);
 }
@@ -94,11 +106,18 @@
   transform: rotate(70deg) scale(1, -1);
 }
 
-.male .gap-edge span.annotation::before {
+.employment .male .gap-edge span.annotation::before {
   content: 'Male unemployment rate';
   bottom: calc(100% + 16rem);
   right: calc(100% + 45rem);
 }
+
+.education .male .gap-edge span.annotation::before {
+  content: 'Percentage of male youth with at least a matric education';
+  bottom: calc(100% + 16rem);
+  right: calc(100% + 45rem);
+}
+
 
 .male .gap-edge span.annotation::after {
   bottom: calc(50% + 15rem);
@@ -112,20 +131,22 @@
   position: absolute;
 }
 
-#name .annotation.better {
+/* better &  worse annotation for the empolyment graph */
+
+.employment #name .annotation.better {
   left: 25rem;
   top: 50%;
   transform: translate(0, -50%);
 }
 
-#name .annotation.better::after {
+.employment #name .annotation.better::after {
   position: relative;
   content: 'Better';
   display: block;
   margin-left: 11rem;
 }
 
-#name .annotation.better::before {
+.employment #name .annotation.better::before {
   content: '';
   position: relative;
   display: block;
@@ -135,20 +156,20 @@
   background-size: contain;
 }
 
-#name .annotation.worse {
+.employment #name .annotation.worse {
   right: 25rem;
   top: 50%;
   transform: translate(0, -50%);
 }
 
-#name .annotation.worse::before {
+.employment #name .annotation.worse::before {
   position: relative;
   content: 'Worse';
   display: block;
   margin-right: 11rem;
 }
 
-#name .annotation.worse::after {
+.employment #name .annotation.worse::after {
   content: '';
   position: relative;
   display: block;
@@ -158,3 +179,53 @@
   background-size: contain;
   transform: scale(-1, 1);
 }
+
+/* better &  worse annotation for the education graph */
+
+.education #name .annotation.better {
+  right: 25rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.education #name .annotation.better::after {
+  content: '';
+  position: relative;
+  display: block;
+  width: 55rem;
+  height: 12rem;
+  background: url(../img/arrow-straight.svg) no-repeat center center;
+  background-size: contain;
+  transform: scale(-1, 1);
+}
+
+.education #name .annotation.better::before {
+  position: relative;
+  content: 'Better';
+  display: block;
+  margin-right: 12rem;
+}
+
+.education #name .annotation.worse {
+  left: 25rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.education #name .annotation.worse::before {
+  content: '';
+  position: relative;
+  display: block;
+  width: 55rem;
+  height: 12rem;
+  background: url(../img/arrow-straight.svg) no-repeat center center;
+  background-size: contain;
+}
+
+.education #name .annotation.worse::after {
+  position: relative;
+  content: 'Worse';
+  display: block;
+  margin-left: 11rem;
+} 
+
