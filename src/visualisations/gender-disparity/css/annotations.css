@@ -59,7 +59,7 @@
 }
 
 .employment #gap-value.annotation::before {
-  content: 'Unemployment gap (lower value is preferable*)';
+  content: 'Unemployment gap (lower value is preferable)';
   left: calc(50% + 50rem);
   top: calc(100% + 28rem);
 }
